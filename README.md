@@ -47,3 +47,5 @@ try `show databases`, `create database hoge`
 # Architecture
 ![Architecture](./protocol-test-arch.png)
 
+# Reference
+https://notes.tweakblogs.net/blog/7955/using-netcat-to-build-a-simple-tcp-proxy-in-linux.html
