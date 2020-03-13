@@ -6,7 +6,8 @@
 - tee
 - curl
 
-# Set up
+# How to use
+## Set up
 ```bash
 docker-compose up -d
 mkfifo fifo
@@ -19,7 +20,7 @@ tail -f response.log # tail another terminal
 - redis listen on 6379
 - nginx listen on 8888
 
-# HTTP
+## HTTP
 ```bash
 nc -l 11111 < fifo | tee request.log | nc localhost 8888 | tee fifo > response.log # tail log file
 curl localhost:11111
@@ -27,7 +28,7 @@ curl localhost:11111
 nc -l 11111 < fifo | tee request.log | nc localhost 8888 | tee fifo > response.log
 open http://localhost:11111
 ```
-# Redis
+## Redis
 ```bash
 nc -l 11111 < fifo | tee request.log | nc localhost 6379 | tee fifo > response.log
 redis-cli -p 11111 
@@ -35,11 +36,14 @@ redis-cli -p 11111
 
 try `ping`, `set name hoge`, `get name`
 
-# Mysql
+## Mysql
 ```bash
 nc -l 11111 < fifo | tee request.log | nc localhost 3306 | tee fifo > response.log
 mysql -h 127.0.0.1 -u root -P 11111 -p # press just enter when asked password (root password is empty)
 ```
 
 try `show databases`, `create database hoge`
+
+# Architecture
+![Architecture](./protocol-test-arch.png)
 
