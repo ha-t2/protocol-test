@@ -24,7 +24,7 @@ tail -f responce.log
 curl localhost:11111
 
 nc -l 11111 < fifo | tee request.log | nc localhost 8888 | tee fifo > responce.log # tail log file
-open localhost:11111
+open http://localhost:11111
 ```
 # Redis
 ```bash
